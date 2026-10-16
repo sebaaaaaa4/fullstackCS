@@ -1,5 +1,0 @@
-sequenceDiagram
-    browser->>server: request for saved notes
-    server-->>browser: sending notes
-    browser->>browser: clicked a button to save the note
-    browser-->>server: sending the saved note 
