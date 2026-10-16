@@ -1,0 +1,10 @@
+<<<<<<< HEAD
+sequenceDiagram
+    cache-->>browser: sending data (notes) to browser
+    browser->>browser: creating a note and sumbitting it
+=======
+sequenceDiagram
+    cache-->>browser: sending data (notes) to browser
+    browser->>browser: creating a note and sumbitting it
+>>>>>>> caa1ff65be26501a65d86bd1990cf419f7961c4b
+    browser-->>cache: sending data to cache 
