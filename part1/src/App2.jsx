@@ -4,7 +4,6 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 
 const Header = (props) => {
-    console.log(props);
     return (
         <h1>{props.course}</h1>
     )
@@ -25,25 +24,30 @@ const Total = (props) => {
 }
 
 const Content = (props) => {
-    const part1 = {
-        name: 'Fundamentals of React',
-        exercises: 10
-    }
-    const part2 = {
-        name: 'Using props to pass data',
-        exercises: 7
-    }
-    const part3 = {
-        name: 'State of a component',
-        exercises: 14
-    }
+    const parts = [
+        {
+            name: 'Fundamentals of React',
+            exercises: 10
+        },
+        {
+            name: 'Using props to pass data',
+            exercises: 7
+        },
+        {
+            name: 'State of a component',
+            exercises: 14
+        }
+    ];
+    let totalValue = 0;
 
     return (
         <div>
-            <Part part={part1.name} exercises={part1.exercises}/>
-            <Part part={part2.name} exercises={part2.exercises}/>
-            <Part part={part3.name} exercises={part3.exercises}/>
-            <Total total={part1.exercises + part2.exercises + part3.exercises}/>
+            {
+                parts.map((i, index) => {
+                    totalValue += i.exercises;
+                    return <Part key={index} part = {i.name} exercises = {i.exercises}/>
+                })
+            }
         </div>
     )
 }
@@ -54,6 +58,7 @@ function App() {
         <div>
             <Header course={course}/>
             <Content/>
+            <Total total={totalValue}/>
         </div>
     )
 }
