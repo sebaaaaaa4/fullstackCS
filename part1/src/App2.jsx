@@ -4,7 +4,9 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 
 const Header = (props) => {
-    <h1>{props.course}</h1>
+    return (
+        <h1>{props.course}</h1>
+    )
 }
 
 const Part = (props) =>{
