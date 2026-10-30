@@ -31,7 +31,7 @@ const Friends = (props) => {
 
   return(
     <div>
-      <p>Lista petów: </p>
+      <p>Lista ludzików: </p>
       {
         friends.map(
           (f, index) => {
