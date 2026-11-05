@@ -16,7 +16,7 @@ const App = () => {
     var positive = good/all;
     return (
       <div>
-        <h1>statistics</h1>
+        <h1>statistics </h1>
         <br/>good {good}
         <br/>neutral {neutral}
         <br/>bad {bad}
