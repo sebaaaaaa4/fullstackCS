@@ -14,7 +14,16 @@ const App = () => {
     var all = good + bad + neutral;
     var average = ((good * 1) + (neutral * 0) + (bad * -1)) / all;
     var positive = good/all;
-    return (
+    if(all <= 0){
+      return (
+      <div>
+        <h1>statistics </h1>
+        No feedback given
+      </div>
+    );
+    }
+    else{
+      return (
       <div>
         <h1>statistics </h1>
         <br/>good {good}
@@ -25,6 +34,7 @@ const App = () => {
         <br/>positive {positive}%
       </div>
     );
+    }
   }
 
   return (
