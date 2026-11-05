@@ -13,7 +13,16 @@ const App = () => {
   const Statistics = () =>{
     var all = good + bad + neutral;
     var average = ((good * 1) + (neutral * 0) + (bad * -1)) / all;
-    var positive = good/all;
+    var positive = (good/all) * 100;
+
+    const StatisticLine = (props) =>{
+      return (
+        <div>
+          {props.text} {props.variable}{props.sufix != "" ? props.sufix : ""}
+        </div>
+      )
+    }
+
     if(all <= 0){
       return (
       <div>
@@ -25,13 +34,13 @@ const App = () => {
     else{
       return (
       <div>
-        <h1>statistics </h1>
-        <br/>good {good}
-        <br/>neutral {neutral}
-        <br/>bad {bad}
-        <br/>all {all}
-        <br/>average {average}
-        <br/>positive {positive}%
+        <h1>statistics</h1>
+        <StatisticLine text="good" variable={good}/>
+        <StatisticLine text="neutral" variable={neutral}/>
+        <StatisticLine text="bad" variable={bad}/>
+        <StatisticLine text="all" variable={all}/>
+        <StatisticLine text="average" variable={average}/>
+        <StatisticLine text="positive" variable={positive} sufix="%"/>
       </div>
     );
     }
