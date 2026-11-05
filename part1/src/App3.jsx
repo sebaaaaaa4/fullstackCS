@@ -17,9 +17,10 @@ const App = () => {
 
     const StatisticLine = (props) =>{
       return (
-        <div>
-          {props.text} {props.variable}{props.sufix != "" ? props.sufix : ""}
-        </div>
+        <tr>
+          <td>{props.text}</td>
+          <td>{props.variable}{props.sufix != "" ? props.sufix : ""}</td>
+        </tr>
       )
     }
 
@@ -33,15 +34,17 @@ const App = () => {
     }
     else{
       return (
-      <div>
-        <h1>statistics</h1>
-        <StatisticLine text="good" variable={good}/>
-        <StatisticLine text="neutral" variable={neutral}/>
-        <StatisticLine text="bad" variable={bad}/>
-        <StatisticLine text="all" variable={all}/>
-        <StatisticLine text="average" variable={average}/>
-        <StatisticLine text="positive" variable={positive} sufix="%"/>
-      </div>
+        <div>
+          <h1>statistics</h1>
+          <table>
+            <StatisticLine text="good" variable={good}/>
+            <StatisticLine text="neutral" variable={neutral}/>
+            <StatisticLine text="bad" variable={bad}/>
+            <StatisticLine text="all" variable={all}/>
+            <StatisticLine text="average" variable={average}/>
+            <StatisticLine text="positive" variable={positive} sufix="%"/>
+          </table>
+        </div>
     );
     }
   }
