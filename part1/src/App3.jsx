@@ -11,12 +11,18 @@ const App = () => {
   const Button = (props) => <button onClick={props.rating}>{props.text}</button>;
 
   const Statistics = () =>{
+    var all = good + bad + neutral;
+    var average = ((good * 1) + (neutral * 0) + (bad * -1)) / all;
+    var positive = good/all;
     return (
       <div>
         <h1>statistics</h1>
         <br/>good {good}
         <br/>neutral {neutral}
         <br/>bad {bad}
+        <br/>all {all}
+        <br/>average {average}
+        <br/>positive {positive}%
       </div>
     );
   }
