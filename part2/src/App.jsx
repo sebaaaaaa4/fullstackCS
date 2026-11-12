@@ -11,12 +11,11 @@ const Part = (props) => {
 }
 
 const Content = (props) => {
-  var total = 0;
+  var total = props.parts.reduce((s,p) => s + p.exercises, 0);
   return(
     <div>
       {
-        props.parts.map(content => {
-          total += content.exercises;
+        props.parts.map(content => {;
           return <Part key={content.id} content={content}/>
         })
       }
