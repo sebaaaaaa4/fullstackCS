@@ -11,13 +11,16 @@ const Part = (props) => {
 }
 
 const Content = (props) => {
+  var total = 0;
   return(
     <div>
       {
         props.parts.map(content => {
+          total += content.exercises;
           return <Part key={content.id} content={content}/>
         })
       }
+      <b>total of {total} exercises</b>
     </div>
   )
 }
@@ -50,6 +53,11 @@ const App = () => {
         name: 'State of a component',
         exercises: 14,
         id: 3
+      },
+      {
+        name: 'Redux',
+        exercises: 11,
+        id: 4
       }
     ]
   }
