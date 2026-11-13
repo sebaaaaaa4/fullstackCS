@@ -12,12 +12,24 @@ const App = () => {
 
   const addName = () => {
     event.preventDefault()
-    const newContact = {
-        id: String(persons.length+1),
-        name: newName
+    var isNameDistinct = true;
+    persons.map(f => {
+        if(f.name == newName) isNameDistinct = false;
+    })
+
+    if(!isNameDistinct){
+        console.log("a");
+        alert(`${newName} is already added to the phonebook`);
     }
-    setPersons(persons.concat(newContact))
-    setNewName('')
+    else{
+        console.log("b");
+        const newContact = {
+            id: String(persons.length+1),
+            name: newName
+        }
+        setPersons(persons.concat(newContact))
+        setNewName('')
+    }
   }
 
   return (
