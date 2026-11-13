@@ -2,10 +2,14 @@ import { useState } from 'react'
 
 const App = () => {
   const [persons, setPersons] = useState([
-    { name: 'Arto Hellas', number: '040-1234567' }
+    { name: 'Arto Hellas', number: '040-123456', id: 1 },
+    { name: 'Ada Lovelace', number: '39-44-5323523', id: 2 },
+    { name: 'Dan Abramov', number: '12-43-234345', id: 3 },
+    { name: 'Mary Poppendieck', number: '39-23-6423122', id: 4 }
   ]) 
   const [newName, setNewName] = useState('')
   const [newNum, setNewNum] = useState('')
+  const [filter, setFilter] = useState('')
 
   const handleTextChange = (event, stateFunc) => {
     event.preventDefault();
@@ -39,6 +43,10 @@ const App = () => {
   return (
     <div>
       <h2>Phonebook</h2>
+      <form>
+        filter shown with<input value={filter} onChange={() => handleTextChange(event, setFilter)}/>
+      </form>
+      <h2>add a new</h2>
       <form onSubmit={() => addName()}>
         <div>name: <input value={newName} onChange={() => handleTextChange(event, setNewName)}/></div>
         <div>number: <input value={newNum} onChange={() => handleTextChange(event, setNewNum)}/></div>
@@ -46,8 +54,10 @@ const App = () => {
       </form>
       <h2>Numbers</h2>
       {
-        persons.map((item, f) => {
-            return <span key={f}><br/>{item.name} {item.number}</span>
+        persons.filter(function (str) {
+            return str.name.match(filter)
+        }).map((items, f) => {
+            return <span key={f}><br/>{items.name} {items.number}</span>
         })
       }
     </div>
